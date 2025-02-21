@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#FEITO POR @JEFFERSON_DDOS
 RESET='\033[0m'
 BOLD='\033[1m'
 RED='\033[31m'
@@ -10,6 +10,8 @@ CYAN='\033[36m'
 
 #___________________________________
 #CONFIGURAÇÕES 
+#Script feita por @jefferson_ddos
+
 user="SEU USUÁRIO DO GITHUB"
 
 token="CRIE DEU TOKEN DO GITHUB E COLE AQUI, SE NAO SOUBER PROCURE NO GOOGLE"
@@ -60,19 +62,19 @@ initialize_git() {
   git config --global user.name "$user"
   git config --global user.email "$email"
 
-  # Criar o arquivo .gitignore com upar.sh ignorado
+  
   if [ ! -f .gitignore ]; then
     echo "upar.sh" > .gitignore
   else
     grep -qxF "upar.sh" .gitignore || echo "upar.sh" >> .gitignore
   fi
 
-  # Criar o arquivo README.md
+ 
   echo "# $repo_name" > README.md
   git init
   git add .
 
-  # Adicionar todos os arquivos e pastas no diretório atual
+  
   find . -type f -exec git add {} \;
 
   commit_count=$(git rev-list --count HEAD 2>/dev/null)
@@ -95,7 +97,7 @@ update_repo() {
   git config --global user.email "$email"
 
   git add .
-  # Adicionar todos os arquivos modificados
+  
   find . -type f -exec git add {} \;
 
   commit_count=$(git rev-list --count HEAD 2>/dev/null)
@@ -112,9 +114,9 @@ update_repo() {
 while true; do
   clear
   echo -e "${CYAN}Escolha uma opção:${RESET}"
-  echo -e "${YELLOW}1) Criar e upar para um novo repositório${RESET}"
-  echo -e "${YELLOW}2) Atualizar repositório existente${RESET}"
-  echo -e "${YELLOW}3) Deletar um repositório${RESET}"
+  echo -e "${YELLOW}[ 1 ] Criar e upar para um novo repositório${RESET}"
+  echo -e "${YELLOW}[ 2 ] Atualizar repositório existente${RESET}"
+  echo -e "${YELLOW}[ 3 ] Deletar um repositório${RESET}"
   read -p "Opção (1, 2 ou 3): " option
 
   if [[ "$option" =~ ^[1-3]$ ]]; then
@@ -129,8 +131,8 @@ read -p "Digite o nome do repositório no GitHub: " repo_name
 
 if [ "$option" -eq 1 ]; then
   echo -e "${CYAN}Escolha a visibilidade do repositório:${RESET}"
-  echo -e "${YELLOW}1) Público${RESET}"
-  echo -e "${YELLOW}2) Privado${RESET}"
+  echo -e "${YELLOW}[ 1 ] Público${RESET}"
+  echo -e "${YELLOW}[ 2 ] Privado${RESET}"
   read -p "Opção (1 ou 2): " visibility_option
 
   case $visibility_option in
@@ -164,7 +166,3 @@ case $option in
     echo -e "${RED}Opção inválida!${RESET}"; exit 1
     ;;
 esac
-
-# Remover o diretório .git após a execução
-rm -rf .git
-echo -e "${GREEN}A pasta .git foi removida com sucesso!${RESET}"
