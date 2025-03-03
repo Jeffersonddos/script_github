@@ -17,4 +17,4 @@ Script feito por @jefferson_ddos para gerenciar repositórios no GitHub diretame
 
 1. **INSTALAÇÃO**:
    ```bash
-   pkg install git -y && git clone git clone https://github.com/Jeffersonddos/script_github.git && cd script_github && bash upar.sh
+   pkg install git -y && git clone https://github.com/Jeffersonddos/script_github.git && cd script_github && bash upar.sh
