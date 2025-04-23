@@ -4,7 +4,7 @@ Script feito por @jefferson_ddos para gerenciar repositórios no GitHub diretame
 
 ## Funcionalidades
 
-- **Criar novo repositório**
+- **Criar novo repositório privado/público**
 - **Atualizar repositório existente**
 - **Deletar repositório**
 
